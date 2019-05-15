@@ -39,25 +39,20 @@ output: ,HeLLo123
 ```
 
 ```js
-function alphaSwap(n){
-    let result = '';
-        for (let i = 0; i <n.length; i+=1){
-            if('a'<=n[i] && n[i]<='z' ){
-                result += n[i].toUpperCase()
-            }else if ('A'<=n[i] && n[i]<='Z' ){
-                result += n[i].toLowerCase()
-            }else result += n[i]
-        }
-        
-        
-        return result
+function alphaSwap(n) {
+  let result = '';
+  for (let i = 0; i < n.length; i += 1) {
+    if (n[i] >= 'a' && n[i] <= 'z') {
+      result += n[i].toUpperCase();
+    } else if (n[i] >= 'A' && n[i] <= 'Z') {
+      result += n[i].toLowerCase();
+    } else result += n[i];
+  }
+  return result;
 }
 
+console.log(alphaSwap('abDd'));
 
-console.log(alphaSwap("abcd")) 
-        
-        return result
-}
 ```
 ## hw3：判斷質數
 給定一個數字 n（1<=n<=100000），請回傳 n 是否為質數（質數的定義：除了 1 以外，所有小於他的數都無法整除）
@@ -71,14 +66,17 @@ n = 38 => false
 ```
 
 ```js
-function isPrime (n){
-        if (n===1)return false
-        for (let i = 2; i<n; i++){
-            if(n % i === 0){
-                return false
-            }
-        }return true
+function isPrime(n) {
+  if (n === 1) return false;
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      return false;
+    }
+  } return true;
 }
+
+console.log(isPrime(7))
+
 ```
 ## hw4：判斷迴文
 給定一個長度小於 100 的字串 s，請回傳 s 是否為迴文（迴文的定義：正著唸倒著念都一樣）
@@ -92,23 +90,24 @@ applppa => true
 
 
 ```js
-function isPalindromes (str){
-    
-    let len = str.length
-        for (let i = 0; i < len; i+=1){
-            if(str === reverse(str)){                
-                return true
-            }return false
-}
+function reverse(str) {
+  let sum = '';
+  for (let i = str.length; i >= 0; i -= 1) {
+    sum += str.charAt(i);
+  }
+  return sum;
 }
 
-function reverse(str){
-    let sum = '';                           
-    for (var i =str.length ;i >=0 ;i-=1){     
-    sum += str.charAt(i)                      
+function isPalindromes(str) {
+  const len = str.length;
+  for (let i = 0; i < len; i += 1) {
+    if (str === reverse(str)) {
+      return true;
+    }
+  } return false;
 }
-return sum                                  
-}
+
+console.log(isPalindromes('aaaaabcbbaaaaa'));
 ```
 
 ## hw5：大數加法
@@ -153,5 +152,7 @@ function add(a, b) {
     }
   }
   return (newArray.join(''));
-}   
+}
+
+console.log(add('12312383813881381381', '129018313819319831'));
 ```
