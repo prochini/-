@@ -50,16 +50,15 @@ star(10) 預期輸出：
 **********
 ```
 
-
 ```js
-function star (Num){
-let answer = ' ';    
-for (var i=1; i<=Num; i++){
-        answer += '*'        
-    }    
-console.log(answer)
+function star(Num) {
+  let answer = ' ';
+  for (let i = 1; i <= Num; i += 1) {
+    answer += '*';
+  }
+  console.log(answer);
 }
-star(Num)
+star(10);
 ```
 ### 練習四：寫一個能回傳 n 個 * 的函式
 
@@ -75,14 +74,14 @@ star(5) 會回傳 *****
 
 
 ```js
-function star (Num){
-let answer = ' ';    
-for (var i=1; i<=Num; i++){
-        answer += '*'        
-    }    
-return(answer)
+function star(Num) {
+  let answer = ' ';
+  for (let i = 1; i <= Num; i += 1) {
+    answer += '*';
+  }
+  return (answer);
 }
-console.log(star(Num))
+console.log(star(7));
 ```
 ### 練習五：判斷大小寫
 請寫一個叫做 isUpperCase 的 function，並且接收一個字串，回傳這個字串的第一個字母是否為大寫。
@@ -92,15 +91,13 @@ isUpperCase("ABCD") 正確回傳值：true
 isUpperCase("aBCD") 正確回傳值：false
 
 ```js
-function isUpperCase(str){
-    let firstChar = str.codePointAt(0)
-    if ( 65<=firstChar && firstChar <=90 ){
-        return true
-    }else if(97<=firstChar&& firstChar<=122){
-        return false
-    }
+function isUpperCase(str) {
+  const firstChar = str.codePointAt(0);
+  if (firstChar >= 65 && firstChar <= 90) {
+    return true;
+  } return false;
 }
-console.log(isUpperCase("str"))
+console.log(isUpperCase('sdcf'));
 
 ```
 ### 練習六：回傳第一個大寫字母以及它的 index
@@ -113,13 +110,13 @@ position("AbcD") 正確回傳值：A 0
 position("abCD") 正確回傳值：C 2
 
 ```js
-function position(str){
-    var regex = /[A-Z]/g;    
-    let index = str.search(regex);
-    let char = str.charAt(index)
-        return (char+" "+index)
-}   
-console.log(position("str"))
+function position(str) {
+  const regex = /[A-Z]/g;
+  const index = str.search(regex);
+  const char = str.charAt(index);
+  return (`${char} ${index}`);
+}
+console.log(position('abbs'));
 
 ```
 ### 練習七：回傳陣列裡面所有小於 n 的數的數量
@@ -129,16 +126,17 @@ findSmallCount([1, 2, 3, 4, 5], 0) 預期回傳值：0
 findSmallCount([1, 2, 3, 4], 100) 預期回傳值：4
 
 ```js
-function findSmallCount(ary,Num){
-    let smallNumber=[]
-    
-    for (var i= 0; i<=ary.length; i++){             
-        if (ary[i]<Num){smallNumber.push('<Num')                 
-        }    
+function findSmallCount(ary, Num) {
+  const smallNumber = [];
+
+  for (let i = 0; i <= ary.length; i += 1) {
+    if (ary[i] < Num) {
+      smallNumber.push('<Num');
     }
-    return smallNumber.length
+  }
+  return smallNumber.length;
 }
-console.log(findSmallCount([1, 2, 3], 2))
+console.log(findSmallCount([1, 4, 3], 3));
 ```
 ### 練習八：回傳陣列裡面所有小於 n 的數的總和
 請寫一個函式 findSmallerTotal，接收一個陣列以及數字 n，回傳陣列裡面所有小於 n 的數的總和。
@@ -152,17 +150,18 @@ findSmallerTotal([3, 2, 5, 8, 7], 999) 正確回傳值：25
 findSmallerTotal([3, 2, 5, 8, 7], 0) 正確回傳值：0
 
 ```js
-function findSmallerTotal(ary,num){
-    let smallNumber=[];
-    let sum = 0;
-    for (var i= 0; i<=ary.length; i++){             
-        if (ary[i]<num){smallNumber.push(ary[i])                 
-        }    
+function findSmallerTotal(ary, num) {
+  const smallNumber = [];
+  let sum = 0;
+  for (let i = 0; i <= ary.length; i += 1) {
+    if (ary[i] < num) {
+      smallNumber.push(ary[i]);
     }
-    smallNumber.forEach(function(e){sum += e;});
-    return sum
+  }
+  smallNumber.forEach((e) => { sum += e; });
+  return sum;
 }
-console.log(findSmallerTotal([1, 2, 3], 3))
+console.log(findSmallerTotal([1, 2, 3], 3));
 ```
 ### 練習九：回傳陣列裡面所有小於 n 的數
 請寫一個函式 finaAllSmall，接收一個陣列跟一個數字 n，回傳一個裡面有所有小於 n 的數的陣列（需按照原陣列順序）。
@@ -171,17 +170,19 @@ findAllSmall([1, 2, 3], 2) 正確回傳值：[1]
 findAllSmall([1, 3, 5, 4, 2], 4) 正確回傳值：[1, 3, 2]
 
 ```js
-function finaAllSmall(ary,num){
-    let smallNumber=[];
-    
-    for (var i= 0; i<=ary.length; i++){             
-        if (ary[i]<num){smallNumber.push(ary[i])                 
-        }    
+function finaAllSmall(ary, num) {
+  const smallNumber = [];
+
+  for (let i = 0; i <= ary.length; i += 1) {
+    if (ary[i] < num) {
+      smallNumber.push(ary[i]);
     }
- 
-    return smallNumber
+  }
+
+  return smallNumber;
 }
-console.log(finaAllSmall([1, 2, 3], 10))
+console.log(finaAllSmall([1, 2, 3], 10));
+
 ```
 ### 練習十：回傳陣列總和
 請寫一個 function sum，接收一個陣列並回傳陣列中數字的總和。
@@ -191,15 +192,10 @@ sum([1, 2, 3]) 預期回傳值：6
 sum([-1, 1, 2, -2, 3, -3]) 預期回傳值：0
 
 ```js
-function sum(ary){
-    let total = ary.reduce(( acc, cur ) => acc + cur);
-        return total      
-    } 
+function sum(ary) {
+  const total = ary.reduce((acc, cur) => acc + cur);
+  return total;
+}
 
-console.log(sum([1, 2, 3]))
-```
-### 
-
-```js
-
+console.log(sum([1, 2, 3]));
 ```
