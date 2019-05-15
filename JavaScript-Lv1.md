@@ -2,18 +2,17 @@
 請你分別用 for loop 以及 while 迴圈，印出 1~9。
 
 ```js
-while loop
-var i =1;
+// while loop
+let i;
+while (i < 10) {
+  console.log(i);
+  i += 1;
+}
 
-while (i<10){
-    console.log(i)
-    i++
-} 
-
-for loop
-for (var i=1; i<10 ;i++){
-    console.log(i)
-    }
+// for loop
+for (let j = 1; j < 10; j += 1) {
+  console.log(j);
+}
 
 ```
 ### 練習二：寫一個能夠印出 1~n 的函式 
@@ -29,12 +28,12 @@ print(3) 預期輸出：
 3
 please write a function called 'print'，received a parameter 'n'，and then print 1~n。
 ```js
-function print(n){
-    for (var i=1; i<=n; i++){
-        console.log(i)        
-    }    
+function print(n) {
+  for (let i = 1; i <= n; i += 1) {
+    console.log(i);
+  }
 }
-print()
+print(10);
 ```
 ### 練習三：寫一個能夠印出 n 個 * 的函式
 
