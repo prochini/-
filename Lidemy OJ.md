@@ -226,5 +226,46 @@ function pa(n) {
 
 console.log(pa('80 90 90'));
 ```
-## 首領的名字
+## 首領的名字 (0/0)
 
+輸入說明
+輸入會是一個字串 S 跟一個陣列 M。
+
+S 是一個汙漬的名字，名字皆為小寫英文字母，而汙漬用#號表示，請注意#代表任意長度和任意字母的汙漬。 M 的每一個元素為測試的名字，名字也都是小寫字母。
+
+名字的長度不會超過 100。
+
+輸出說明
+對每組測試資料，請回傳一個跟陣列 M 長度相同的陣列，其中每一個元素為第 i 個名字可不可能為首領的名字，可能則輸出 POSSIBLE，不可能則輸出 IMPOSSIBLE。
+
+實作說明
+請實作一個叫做pb的 function，接收輸入回傳題目要求的輸出。
+
+範例
+pb('jam#s', ['john', 'james', 'jam', 'jambus']) => ['IMPOSSIBLE', 'POSSIBLE', 'IMPOSSIBLE', 'POSSIBLE']
+pb('sa#', ['sally', 'sa', 'susan']) => ['POSSIBLE', 'POSSIBLE', 'IMPOSSIBLE']
+
+題目出處
+NPSC 2008 年國中組初賽
+
+
+```js
+function pb(S, M) {
+  const len = S.length;
+  const re = /[#]/g;
+  const index = S.search(re);
+  const result = [];
+  console.log(index);
+  for (let i = 0; i < M.length; i += 1) {
+    if (S.slice(0, index) !== M[i].slice(0, index)) {
+        result.push('IMPOSSIBLE');
+      }
+    if (index !== (len - 1) && M[i].length < len) {
+      result.push('IMPOSSIBLE');
+    }  
+  }result.push('POSSIBLE');
+  console.log(result);
+}
+
+console.log(pb('sa#', ['sally', 'safd', 'susan']));
+```
