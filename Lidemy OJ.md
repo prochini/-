@@ -270,7 +270,7 @@ function pb(S, M) {
 
 console.log(pb('sa#', ['sally', 'safd', 'susan']));
 ```
-## electric 電費系統 (100/100)
+## electric
 
 請你根據下 面這個規則，設計一套電費計算系統。
 
