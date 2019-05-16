@@ -42,7 +42,7 @@ function pa(obj) {
 console.log(pa(['TACO hanon 0', 'peggy Penny 0', 'Debbie MeiMei 0', 'TACO hanon 0', 'peggy Penny 0']));
 
 ```
-## 不公平的人，是誰？
+## 不公平的人，是誰？(100/100)
 
 輸入說明
 輸入會是兩個字串 M 與 N。其中M代表大郭的水槍射程，N代表小郭的水槍射程，注意為求精確，所有射程的長度單位均為奈米。
@@ -79,4 +79,45 @@ function pb(M, N) {
 }
 //Unexpected assignment within an 'if' statement.
 
+```
+## 打不倒的空氣人 (100/100)
+這篇文章包含兩個部份，前半段是n個由小寫字母組成的英文單字，後半段是一個數列A1, A2, …, Am 。將所有單字接成一個很長的字串，這個字串的第A1, A2, …, Am個字母拼成的單字就是網站的密碼。
+
+例如文章前半為 the quick brown fox jumps over the lazy dog
+
+數列是 30, 6, 10, 19, 30, 13
+
+答案就是字串"thequickbrownfoxjumpsoverthelazydog"的第30, 6, 10, 19, 30, 13個字母"airman"
+
+(註：字串index由1開始)
+
+由於文章非常長，neko希望你能幫他寫一個簡單的程式算出他要的密碼。
+
+輸入說明
+輸入會是兩個陣列，第一個陣列包含各種英文單字，第二個陣列包含文中所提的數列，可以假設數字不會超過字串總長度。
+
+輸出說明
+請回傳解出的密碼
+
+實作說明
+請實作一個叫做pc的 function，接收兩個字串並回傳題目要求的輸出。
+
+範例
+pc(['ab', 'cd', 'ef'], [1, 4]) => ad
+
+題目出處
+NPSC 2007 年國中組初賽
+
+```js
+function pc(M, N) {
+  const str = M.join('');
+  let pwd = '';
+
+
+  for (let i = 0; i < N.length; i += 1) {
+    const index = N[i];
+    pwd += str[index - 1];
+  }
+  return pwd;
+}
 ```
