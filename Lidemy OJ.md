@@ -144,3 +144,49 @@ function pd(n) {
   return result.length;
 }
 ```
+## 友好數
+輸入說明
+輸入會是一個介於 2 與1000000 之間的數字 n。
+
+輸出說明
+對輸入的每個數 n，請試著找出是否存在某個數 m，使得 n 和 m 是友好數。如果有，請回傳 m，如果 n 和它自己形成友好數（也就是 n 的真因數和剛好也是 n）則回傳 =n，否則回傳 0。
+
+注意：這邊的回傳值請統一回傳字串型態。
+
+實作說明
+請實作一個叫做pe的 function，接收一個數字並回傳題目要求的輸出。
+
+範例
+pe(6) => =6
+pe(7) => 0
+pe(220) => 284
+
+題目出處
+NPSC 2007 年國中組決賽
+
+```js
+function factor(m, n) {
+  let sumM = 0;
+  let sumN = 0;
+
+  for (let i = 1; i < m; i += 1) {
+    if (m % i === 0) {
+      sumM += i;
+    }
+  }
+  for (let i = 1; i < n; i += 1) {
+    if (n % i === 0) {
+      sumN += i;
+    }
+  }
+
+  if (sumM === n && sumN === m) {
+    return n;
+  } if (sumM !== n ) {
+    return 0;
+  }
+}
+
+console.log(factor(6 ,6));
+
+```
