@@ -121,3 +121,26 @@ function pc(M, N) {
   return pwd;
 }
 ```
+## 白飯
+輸入說明
+輸入會是一個陣列，包含著 n 個整數(0 < n <= 1000)，每個整數 Ai(0 <= Ai <= 100)代表第 i 個學生的分數。
+
+輸出說明
+請回傳低於平均的學生人數。
+
+實作說明
+請實作一個叫做pd的 function，接收一個陣列並回傳題目要求的輸出。
+
+範例
+pd([1, 3, 5]) => 1
+
+題目出處
+NPSC 2007 年國中組初賽
+
+```js
+function pd(n) {
+  const avg = n.reduce((acc, cur) => acc + cur) / n.length;
+  const result = n.filter(item => item < avg);
+  return result.length;
+}
+```
