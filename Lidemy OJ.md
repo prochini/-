@@ -2,8 +2,10 @@
 
 [sandkingdom](#sandkingdom)
 
-
 [life_number](#life_number)
+
+[baseball](#baseball)
+
 
 
 ## blackgirl(75/100)
@@ -405,3 +407,40 @@ function pa(sum) {
 console.log(pa('19950527'));
 
 ```
+## baseball
+輸入說明
+輸入會是一個字串，格式如下：
+
+x1<空格>y1<空格>x2<空格>y2<空格>x3<空格>y3
+
+以空白分隔的(x1,y1)、(x2,y2)、(x3,y3)，分別代表小鯨、小象、小熊的位置(xy 座標最大不會超過 100，最小不會少於-100)。
+
+輸出說明
+對每組測試資料的(x1,y1)、(x2,y2)、(x3,y3)，請輸出小鯨、小象和小熊，請輸出 YES 或 NO，回答他們是不是站成三角形，在練習三角傳接球的技巧。
+
+實作說明
+請實作一個叫做pf的 function，接收輸入並回傳題目要求的輸出。
+
+範例
+pf('1 3 2 6 3 9') => NO
+pf('55 -25 0 0 1 2') => YES
+pf('1 1 -4 16 4 -8') => NO
+
+題目出處
+NPSC 2008 年國中組決賽
+
+```js
+function pf(n){
+    let num =n.split(' ');
+    if ((num[3]-num[1])/(num[2]-num[0]) === (num[5]-num[1])/(num[4]-num[0])){
+        return 'NO';
+    }if ((num[3]-num[1])/(num[2]-num[0]) !== (num[5]-num[1])/(num[4]-num[0])){
+        return 'YES';
+    }
+}
+
+
+console.log(pf('55 -25 0 0 1 2'))
+```
+
+
