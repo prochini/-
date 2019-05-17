@@ -2,6 +2,10 @@
 
 [sandkingdom](#sandkingdom)
 
+
+[life_number](#life_number)
+
+
 ## blackgirl(75/100)
 輸入說明
 輸入會是一個長度小於等於 100 的陣列，裡面每一筆資料為一個字串，字串的格式為：
@@ -356,4 +360,48 @@ return sum
 }
 
 console.log(pd(100));
+```
+## life_number
+生命靈數的算法是這樣的，給你某人的出生年月日，把每一位數字拆開後相加，如果總和不是個位數，就繼續把每一位數字拆開後相加，反覆做到結果是個位數為止，最後得到的個位數字就是生命靈數。
+
+例如：1995 年 5 月 27 日
+1+9+9+5+5+2+7 = 38
+3+8 = 11
+1+1 = 2
+輸入說明
+輸入會是一個描述出生年月日的字串，格式為 yyyymmdd。
+
+例如說 1995 年 5 月 27 日會被表示為：19950527
+
+輸出說明
+針對每個女生的生日，輸出生命靈數 L，以及 L 是否為 2。
+
+L 等於 2 的時候請輸出 Yes，其他的情況則輸出 No。
+
+例如說 1995 年 5 月 27 日的輸出是：2, Yes
+
+實作說明
+請實作一個叫做pa的 function，接收輸入並回傳題目要求的輸出。
+
+範例
+pa('19950527') => 2, Yes
+pa('19971205') => 7, No
+pa('19960913') => 2, Yes
+
+題目出處
+NPSC 2009 年國中組初賽
+```js
+function pa(sum) {
+  const a = sum.split('').map(Number).reduce((acc, cur) => acc + cur);
+  const b = a.toString().split('').map(Number).reduce((acc, cur) => acc + cur);
+  const c = b.toString().split('').map(Number).reduce((acc, cur) => acc + cur);
+
+  if (c === 2) {
+    return `${c}, Yes`;
+  } if (c !== 2) {
+    return `${c}, No`;
+  }
+}
+console.log(pa('19950527'));
+
 ```
